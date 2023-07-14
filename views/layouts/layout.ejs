@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+  <link id="main-css" rel="stylesheet" href="/stylesheets/main.css">
   <title>Personal Library</title>
 </head>
 <body>
-  Before
-  <br>
-  <%- body %>
-  <br>
-  After
+  <div class="container">
+    <%- include('../partials/header.ejs') %>
+    <div class="body-container">
+      <%- body %>
+    </div>
+  </div>  
 </body>
 </html>

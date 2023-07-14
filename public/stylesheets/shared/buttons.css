@@ -1,0 +1,33 @@
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1rem;
+  margin-top: 1rem;
+  
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.2rem;
+  color: rgba(245, 222, 179, 0.788);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  box-shadow: 1px 1px 1px rgb(27, 23, 23), 1px 1px 5px rgba(27, 23, 23, 0.807);
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: red;
+}
+
+.btn-submit {
+  background-color: rgb(13, 77, 18);
+}
+
+.btn:hover {
+  color: rgb(245, 222, 179);
+}

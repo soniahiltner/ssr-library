@@ -1,0 +1,46 @@
+
+@import 'shared/header.css';
+@import 'shared/buttons.css';
+@import 'shared/form.css';
+@import 'shared/authors.css';
+
+*, 
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: linear-gradient(to right,#195905, #437331); */
+  background-image: url(/images/children.png),linear-gradient(to right,#195905, #437331);
+  background-size: 110px, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: top 3rem right .2rem,top;
+  color: wheat;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.body-container {
+  margin: 1rem 2rem;
+}
+
+.page-header {
+  font-size: 2rem;
+  font-family: 'Acme', sans-serif;
+}
+
+
+@media screen and (min-width: 768px) {
+  body {
+    background-position: top 11rem right 10rem,top;
+    background-size: 150px, cover;
+  }
+  
+}

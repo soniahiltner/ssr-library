@@ -1,0 +1,39 @@
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: .5rem;
+}
+
+.title {
+  font-family: 'Rubik Dirt', cursive;
+  text-decoration: none;
+  font-size: 3rem;
+  color: wheat;
+  padding: 1rem;
+}
+
+.menu {
+  display: flex;
+  column-gap: .9rem;
+  list-style: none;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: wheat;
+  font-family: 'Rubik Dirt', cursive;
+}
+
+.title:hover,
+.menu li a:hover {
+  color: whitesmoke;
+}
+
+.line {
+  border-bottom: 8px solid #ff7800;
+  margin: 0 1rem;
+}
