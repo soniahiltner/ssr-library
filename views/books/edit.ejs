@@ -1,0 +1,10 @@
+<h2 class="page-header">Edit Book</h2>
+<div class="book-form-container">
+  <form action="/books/<%= book.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+  <%- include('_form-fields') %>
+  <div class="btn-container">
+    <a class="btn btn-cancel" href="/books">Cancel</a>
+    <button class="btn btn-submit" type="submit">Update</button>
+  </div>
+</form>
+</div>

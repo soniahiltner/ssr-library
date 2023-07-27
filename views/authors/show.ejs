@@ -1,0 +1,32 @@
+<h2 class="page-header"><%= author.name %></h2>
+<div class="btn-container-maxWidth">
+  <div class="btn-container">
+    <a
+      class="btn btn-submit"
+      href="/authors/<%= author.id %>/edit"
+      >Edit</a
+    >
+    <%- include('../partials/deleteForm', { url: `/authors/${author.id}` }) %>
+  </div>
+</div>
+
+<br />
+<hr />
+<h3 class="page-header">Books by <%= author.name %></h3>
+<% if (authorBooks.length > 0) { %>
+<div class="books-container">
+  <% authorBooks.forEach(book => { %>
+  <a href="/books/<%= book.id %>">
+    <img
+      class="book-cover"
+      src="<%= book.coverImage.url %>"
+      alt="<%= book.title %>"
+    />
+  </a>
+  <% }) %>
+</div>
+
+<%- include('../partials/pagination', { url: `/authors/${author.id}`})  %>
+<% } else { %>
+  <h4 class="no-books" >No books yet</h4>
+  <% } %>

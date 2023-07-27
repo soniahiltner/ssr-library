@@ -1,0 +1,96 @@
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Images */
+.book-cover {
+  width: 100px;
+  height: 150px;
+}
+
+.book-cover-large {
+  width: 150px;
+  height: 225px;
+}
+
+/* Number of books */
+.number-of-books {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+/* No books */
+.no-books {
+  margin: 1rem;
+}
+
+@media screen and (min-width:768px) {
+  .number-of-books {
+    margin-right: 10rem;
+  }
+}
+
+/* Book info- show */
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  max-width: 40rem;
+}
+
+.image-container img {
+  width: 100px;
+}
+
+.book-details-header {
+  margin-bottom: 0.4rem;
+  color: rgb(237, 237, 198);
+}
+
+.book-details p {
+  font-family: 'Acme', sans-serif;
+}
+
+.book-details h4 {
+  margin-top: .3rem;
+}
+
+.book-details h4 span,
+.book-comments {
+  color: rgb(237, 237, 198);
+}
+
+.book-comments {
+  margin-top: 1rem;
+  margin-bottom: .4rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.page-btn {
+  color: wheat;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  padding: 0.4rem;
+}
+
+.page-number {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

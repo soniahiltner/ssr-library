@@ -1,41 +1,55 @@
 const mongoose = require('mongoose')
 
+
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
-  },
-  description: {
-    type: String
-  },
-  publishDate: {
-    type: Date,
-    required: true
-  },
-  createdAt: {
-    type: Date,
-    required: true,
-    default: Date.now
-  },
-  format: {
-    type: String,
-    enum: ['ebook', 'paper']
-  },
-  category: {
-    type: String,
-    enum: ['mystery', 'historical fiction', 'fantasy', 'romance', 'science fiction', 'poetry', 'horror', 'fable', 'mythology', 'nonfiction', 'autobiography', 'biography', 'comedy', 'tragedy', 'western', 'bildungsroman', 'history', 'memoirs', 'travelogue']
-  },
-  language: {
-    type: String,
-    enum: ['english', 'spanish', 'french', 'german', 'italian', 'galician', 'other']
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'Author'
   },
-  coverImage: {
-    type: Buffer,
+  format: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Format'
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Category'
+  },
+  language: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Language'
+  },
+  country: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Country'
+  },
+  publishYear: {
+    type: Number,
     required: true
+  },
+  description: {
+    type: String
+  },
+  coverImage: {
+    filename: String,
+    url: String
+  },
+  comments: {
+    type: String
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now
   }
 })
+
+module.exports = mongoose.model('Book', bookSchema)

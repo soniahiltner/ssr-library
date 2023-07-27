@@ -1,0 +1,29 @@
+<h2 class="page-header"><%= book.title %></h2>
+<div class="book-container">
+  <div class="image-container">
+    <img src="<%= book.coverImage.url %>" alt="<%= book.title %>">
+  </div>
+  <div class="book-details">
+    <h2 class="book-details-header"><%= book.author.name %> - <small><%= book.country.name %> <%= book.publishYear %></small></h2>
+    <hr>
+    <br>
+    <p><%= book.description %></p>
+    <br>
+    <hr>
+    <h4><span>Category: </span><small><%= book.category.name %></small></h4>
+    <h4><span>Format: </span><small><%= book.format.name %></small></h2>
+    <h4><span>Language: </span><small><%= book.language.name %></small></h2>
+    <h3 class="book-comments">My Notes:</h3>
+    <p><%= book.comments %></p>
+  </div>
+</div>
+<div class="btn-container">
+  <a
+        class="btn btn-submit"
+        href="/books/<%= book.id %>/edit"
+        >Edit</a
+      >
+      <%- include('../partials/deleteForm', {
+      url: `/books/${book.id}`
+    }) %>
+</div>

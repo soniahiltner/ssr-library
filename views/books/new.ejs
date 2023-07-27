@@ -1,0 +1,10 @@
+<h2 class="page-header">New Book</h2>
+<div class="book-form-container">
+  <form action="/books" method="post" enctype="multipart/form-data">
+  <%- include('_form-fields') %>
+  <div class="btn-container">
+    <a class="btn btn-cancel" href="/books">Cancel</a>
+    <button class="btn btn-submit" type="submit">Add book</button>
+  </div>
+</form>
+</div>

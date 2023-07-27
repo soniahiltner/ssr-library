@@ -1,10 +1,10 @@
-
 @import 'shared/header.css';
 @import 'shared/buttons.css';
 @import 'shared/form.css';
 @import 'shared/authors.css';
+@import 'shared/books.css';
 
-*, 
+*,
 *::after,
 *::before {
   margin: 0;
@@ -13,18 +13,19 @@
 }
 
 body {
-  /* background: linear-gradient(to right,#195905, #437331); */
-  background-image: url(/images/children.png),linear-gradient(to right,#195905, #437331);
+  background-image: url(/images/children.png),
+    linear-gradient(to right, #195905, #437331);
   background-size: 110px, cover;
   background-repeat: no-repeat, no-repeat;
-  background-position: top 3rem right .2rem,top;
+  background-position: top 3rem right 0.2rem, top;
   color: wheat;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
+  margin-bottom: 3rem;
 }
 
 .body-container {
@@ -36,11 +37,9 @@ body {
   font-family: 'Acme', sans-serif;
 }
 
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   body {
-    background-position: top 11rem right 10rem,top;
-    background-size: 150px, cover;
+    background-position: top 6.5rem right 4rem, top;
+    background-size: 125px, cover;
   }
-  
 }

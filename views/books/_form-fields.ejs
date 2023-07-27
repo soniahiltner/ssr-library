@@ -1,0 +1,201 @@
+<div class="inputs-container">
+  <div class="form">
+    <label for="title">Title</label>
+    <input
+      autofocus
+      type="text"
+      id="title"
+      name="title"
+      value="<%= book.title %>"
+      required
+    />
+  </div>
+  <div class="form">
+    <label for="author">Author</label>
+    <select
+      name="author"
+      id="author"
+      required
+    >
+      <option
+        style="display: none"
+        value=""
+      ></option>
+
+      <% authors.forEach(author => { %>
+        <% if (author.id != book.author) { %>
+      <option 
+        label="<%= author.name %>"
+        value="<%= author.id %>"
+      ></option>
+      <% } else { %>
+        <option selected
+        label="<%= author.name %>"
+        value="<%= author.id %>"
+      ></option>
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form">
+    <label for="description">Description</label>
+    <textarea
+      name="description"
+      id="description"
+      cols="30"
+      rows="10"
+      required
+    >
+    <%= book.description %>
+  </textarea
+    >
+  </div>
+  <div class="form">
+    <label for="country">Country</label>
+    <select
+      id="country"
+      name="country"
+      required
+    >
+      <option
+        style="display: none"
+        value=""
+      ></option>
+      <% countries.forEach(country => { %>
+        <% if (country.id != book.country ) { %>
+      <option 
+        label="<%= country.name %>"
+        value="<%= country.id %>"
+      ></option>
+      <% } else { %>
+        <option selected
+        label="<%= country.name %>"
+        value="<%= country.id %>"
+      ></option>
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form">
+    <label for="format">Format</label>
+    <select
+      name="format"
+      id="format"
+      required
+    >
+      <option
+        style="display: none"
+        value=""
+      ></option>
+      <% formats.forEach(format => { %>
+        <% if (format.id != book.format) { %>
+      <option 
+        label="<%= format.name %>"
+        value="<%= format.id %>"
+      ></option>
+      <% } else { %>
+        <option selected
+        label="<%= format.name %>"
+        value="<%= format.id %>"
+      ></option>
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form">
+    <label for="category">Category</label>
+    <select
+      name="category"
+      id="category"
+      required
+    >
+      <option
+        style="display: none"
+        value=""
+      ></option>
+      <% categories.forEach(category => { %>
+        <% if (category.id != book.category) { %>
+      <option 
+        label="<%= category.name %>"
+        value="<%= category.id %>"
+      ></option>
+      <% } else { %>
+        <option selected
+        label="<%= category.name %>"
+        value="<%= category.id %>"
+      ></option>
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form">
+    <label for="language">Language</label>
+    <select
+      name="language"
+      id="language"
+      required
+    >
+      <option
+        style="display: none"
+        value=""
+      ></option>
+      <% languages.forEach(language => { %>
+        <% if (language.id != book.language) { %>
+      <option 
+        label="<%= language.name %>"
+        value="<%= language.id %>"
+      ></option>
+      <% } else { %>
+        <option selected
+        label="<%= language.name %>"
+        value="<%= language._id %>"
+      ></option>
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form">
+    <label for="publishYear">Publish Year</label>
+    <input
+      class="input-year"
+      type="number"
+      name="publishYear"
+      id="publishYear"
+      value="<%= book.publishYear %>"
+    />
+  </div>
+  <div class="form">
+    <label
+      class="coverImage"
+      for="coverImage"
+      >Upload a Cover Image
+      <span>&uarr;</span>
+      </label
+    >
+    <input
+      class="coverImageInput"
+      type="file"
+      name="coverImage"
+      id="coverImage"
+      accept="images/*"
+    />
+  </div>
+  <div class="form">
+    <div class="previewImage">
+      <img src="<%= book.coverImage.url %>" alt="<%= book.title %>">
+    </div>
+  </div>
+  <div class="form">
+    <label for="comments">Notes</label>
+    <textarea
+      name="comments"
+      id="comments"
+      cols="30"
+      rows="5"
+    >
+    <%= book.comments %>
+  </textarea
+    >
+  </div>
+</div>

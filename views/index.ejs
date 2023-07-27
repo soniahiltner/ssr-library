@@ -1,1 +1,8 @@
 <h2 class="page-header">My last books</h2>
+<div class="books-container">
+  <% books.forEach(book => { %>
+  <a href='/books/<%= book.id %>'>
+    <img class="book-cover-large" src="<%= book.coverImage.url %>" alt="book.title">
+  </a>
+  <% }) %>
+</div>

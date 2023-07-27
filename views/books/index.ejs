@@ -1,0 +1,22 @@
+<h2 class="page-header">My Books</h2>
+<br />
+<h3 class="number-of-books">You have <%= count %> books in your library</h3>
+<div class="search-book">
+  <a class="btn btn-submit btn-search" href="/books/search">Search Books</a>
+</div>
+<br>
+<hr />
+<div class="books-container">
+  <% books.forEach(book => { %>
+  <a href="/books/<%= book.id %>">
+    <img
+      class="book-cover"
+      src="<%= book.coverImage.url %>"
+      alt="<%= book.title %>"
+    />
+  </a>
+  <% }) %>
+</div>
+<br />
+<hr />
+<%- include('../partials/pagination', { url: '/books'})  %>

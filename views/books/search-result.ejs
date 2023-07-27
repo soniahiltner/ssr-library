@@ -1,0 +1,28 @@
+<h2 class="page-header">My Books</h2>
+<br />
+<div class="search-book">
+  <a
+    class="btn btn-submit btn-search"
+    href="/books/search"
+    >Search</a
+  >
+</div>
+<br />
+<hr />
+<% if (books.length < 1) { %>
+<h3 class="no-books">No books found</h3>
+<% } else { %>
+<div class="books-container">
+  <% books.forEach(book => { %>
+  <a href="/books/<%= book.id %>">
+    <img
+      class="book-cover"
+      src="<%= book.coverImage.url %>"
+      alt="<%= book.title %>"
+    />
+  </a>
+  <% }) %>
+</div>
+<br />
+<hr />
+ <% } %>

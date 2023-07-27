@@ -1,7 +1,11 @@
+.btn-container-maxWidth {
+  max-width: 32rem;
+}
+
 .btn-container {
   display: flex;
   justify-content: flex-end;
-  column-gap: 1rem;
+  column-gap: 0.4rem;
   margin-top: 1rem;
   
 }
@@ -14,20 +18,38 @@
   border-radius: 0.2rem;
   color: rgba(245, 222, 179, 0.788);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border: none;
   box-shadow: 1px 1px 1px rgb(27, 23, 23), 1px 1px 5px rgba(27, 23, 23, 0.807);
   cursor: pointer;
 }
 
 .btn-cancel {
-  background-color: red;
+  background-color: rgba(252, 109, 8, 0.907);
 }
 
 .btn-submit {
-  background-color: rgb(13, 77, 18);
+  background-color: rgba(13, 77, 18);
 }
 
 .btn:hover {
   color: rgb(245, 222, 179);
+}
+
+.btn-submit:hover {
+  background-color: rgba(13, 77, 18);
+}
+
+.btn-cancel:hover {
+  background-color: rgba(252, 109, 8);
+}
+
+@media screen and (min-width:425px) {
+  .btn-container {
+    column-gap: 1rem;
+  }
+  .btn {
+    font-size: 1.1rem;
+  }
+  
 }

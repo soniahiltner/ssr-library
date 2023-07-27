@@ -11,12 +11,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 
+<script defer src="/javascripts/fileUpload.js"></script>
   <link id="main-css" rel="stylesheet" href="/stylesheets/main.css">
   <title>Personal Library</title>
 </head>
 <body>
   <div class="container">
     <%- include('../partials/header.ejs') %>
+    <%- include('../partials/errorMessage.ejs') %>
     <div class="body-container">
       <%- body %>
     </div>
