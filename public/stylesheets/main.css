@@ -13,11 +13,10 @@
 }
 
 body {
-  background-image: url(/images/children.png),
-    linear-gradient(to right, #195905, #437331);
-  background-size: 110px, cover;
-  background-repeat: no-repeat, no-repeat;
-  background-position: top 3rem right 0.2rem, top;
+  background-image: linear-gradient(to right, #195905, #437331);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
   color: wheat;
   min-height: 100vh;
 }
@@ -26,6 +25,18 @@ body {
   max-width: 1200px;
   margin: auto;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+.head {
+  position: sticky;
+  top: 0;
+  background-image: url(/images/children.png),
+    linear-gradient(to right, #195905, #437331);
+  background-size: 110px, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: top 3rem right 0.2rem, top;
+  color: wheat;
 }
 
 .body-container {
@@ -37,9 +48,40 @@ body {
   font-family: 'Acme', sans-serif;
 }
 
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  font-family: 'Acme', sans-serif;
+}
+.quote::before,
+.quote::after {
+  content: '"';
+}
+.quote {
+  padding: 1rem 1rem 0.5rem;
+}
+.author-quote {
+  align-self: flex-end;
+  padding-right: 2rem;
+}
+
 @media screen and (min-width: 900px) {
   body {
+    background-image: url(/images/children.png),
+      linear-gradient(to right, #195905, #437331);
+    background-repeat: no-repeat, no-repeat;
     background-position: top 6.5rem right 4rem, top;
     background-size: 125px, cover;
   }
+  .head {
+    background-image: linear-gradient(to right, #195905, #437331);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
 }
+

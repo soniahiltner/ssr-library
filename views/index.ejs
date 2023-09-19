@@ -1,8 +1,16 @@
 <h2 class="page-header">My last books</h2>
+<div class="quote-container">
+  <p class="quote"><%= quote.quote %></p>
+  <cite class="author-quote">-<%= quote.author %></cite>
+</div>
 <div class="books-container">
   <% books.forEach(book => { %>
-  <a href='/books/<%= book.id %>'>
-    <img class="book-cover-large" src="<%= book.coverImage.url %>" alt="book.title">
+  <a href="/books/<%= book.id %>">
+    <img
+      class="book-cover-large"
+      src="<%= book.coverImage.url %>"
+      alt="book.title"
+    />
   </a>
   <% }) %>
 </div>
