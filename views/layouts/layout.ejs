@@ -17,8 +17,10 @@
 </head>
 <body>
   <div class="container">
-    <%- include('../partials/header.ejs') %>
-    <%- include('../partials/errorMessage.ejs') %>
+    <div class="head">
+        <%- include('../partials/header.ejs') %> <%-
+        include('../partials/errorMessage.ejs') %>
+      </div>
     <div class="body-container">
       <%- body %>
     </div>
