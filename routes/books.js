@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
   const skip = (page - 1) * limit
   
   try {
-    const count = await Book.find().count().exec()
+    const count = await Book.countDocuments().exec()
     const totalPages = Math.ceil(count / limit)
     
     const books = await Book.find()
@@ -52,17 +52,36 @@ router.get('/', async (req, res) => {
       count: count
     })
     
-  } catch (err){
+  } catch {
     res.redirect('/')
-    console.log(err)
   }
-  
+})
+
+//Search book
+router.get('/search', async (req, res) => {
+
+  try {
+    const categories = await Category.find({}).sort({ name: 1 })
+    const formats = await Format.find({})
+    const countries = await Country.find({}).sort({ name: 1 })
+    const languages = await Language.find({}).sort({ name: 1 })
+    
+    res.render('books/search', {
+      categories: categories,
+      formats: formats,
+      countries: countries,
+      languages: languages,
+      searchOptions: req.query
+    })
+  } catch {
+    res.redirect('/')
+  }
 })
 
 // Get search results
 router.get('/results', async (req, res) => {
   const page = +req.query.page || 1
-  const limit = 5
+  const limit = 10
   const skip = (page - 1) * limit
   let query = Book.find()
   if (req.query.title != null && req.query.title != '') {
@@ -94,50 +113,6 @@ router.get('/results', async (req, res) => {
 
     res.render('books/search-result', {
       books: books
-    })
-  } catch {
-    res.redirect('/')
-  }
-})
-
-
-//Search book
-router.get('/search', async (req, res) => {
-  let query = Book.find()
-  if (req.query.title != null && req.query.title != '') {
-    query = query.regex('title', new RegExp(req.query.title, 'i'))
-  }
-  if (req.query.publishedAfter != null && req.query.publishedAfter != '') {
-    query = query.gte('publishYear', req.query.publishedAfter)
-  }
-  if ((req.query.publishedBefore != null) & (req.query.publishedBefore != '')) {
-    query = query.lte('publishYear', req.query.publishedBefore)
-  }
-  if (req.query.category != null && req.query.category != '') {
-    query = query.where('category').equals(req.query.category)
-  }
-  if (req.query.format != null && req.query.format != '') {
-    query = query.where('format').equals(req.query.format)
-  }
-  if (req.query.country != null && req.query.country != '') {
-    query = query.where('country').equals(req.query.country)
-  }
-  if (req.query.language != null && req.query.language != '') {
-    query = query.where('language').equals(req.query.language)
-  }
-
-  try {
-    const categories = await Category.find({}).sort({ name: 1 })
-    const formats = await Format.find({})
-    const countries = await Country.find({}).sort({ name: 1 })
-    const languages = await Language.find({}).sort({ name: 1 })
-    
-    res.render('books/search', {
-      categories: categories,
-      formats: formats,
-      countries: countries,
-      languages: languages,
-      searchOptions: req.query
     })
   } catch {
     res.redirect('/')

@@ -57,7 +57,7 @@
 }
 
 .book-details p {
-  font-family: 'Acme', sans-serif;
+  font-family: var(--second-font);
 }
 
 .book-details h4 {
@@ -84,7 +84,7 @@
 }
 
 .page-btn {
-  color: wheat;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: bolder;
@@ -92,5 +92,5 @@
 }
 
 .page-number {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: var(--third-font);
 }

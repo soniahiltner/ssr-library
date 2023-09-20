@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Author = require("../models/author")
 const Book = require("../models/book")
+const cloudinary = require('cloudinary').v2
 
 //Get all authors
 router.get('/', async (req, res) => {
@@ -47,7 +48,7 @@ router.post('/', async (req, res) => {
 // Get one author
 router.get('/:id', async (req, res) => {
   const page = +req.query.page || 1
-  const limit = 5
+  const limit = 10
   const skip = (page - 1) * limit
   try {
     const author = await Author.findById(req.params.id)
@@ -99,13 +100,41 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+//Delete author form
+router.get('/:id/delete', async (req, res) => {
+  try {
+    const author = await Author.findById(req.params.id)
+    res.render('authors/delete', { author: author })
+  } catch {
+    res.redirect('/authors')
+  }
+})
+
 // Delete author
 router.delete('/:id', async (req, res) => {
   let author
   try {
     author = await Author.findById(req.params.id)
-    await Author.deleteOne({_id: req.params.id})
-    res.redirect('/authors')
+    //Check if the author has books
+    const count = await Book.countDocuments({ author: author._id })
+    if (count === 0) {
+      // Delete author
+      await Author.deleteOne({ _id: req.params.id })
+      res.redirect('/authors')
+    } else {
+      // Delete books from author
+      const authorBooks = await Book.find({ author: author.id })
+      authorBooks.forEach(async (book) => {
+        const imagePublicId = book.coverImage.filename
+        await Book.deleteOne({ _id: book._id })
+        await cloudinary.uploader.destroy(imagePublicId)
+      })
+      // Delete author
+      await Author.deleteOne({ _id: req.params.id })
+      res.redirect('/authors')
+    }
+
+    
   } catch {
     if (author == null) {
       res.redirect('/')

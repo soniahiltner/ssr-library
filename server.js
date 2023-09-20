@@ -21,10 +21,6 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
-app.use('/', indexRouter)
-app.use('/authors', authorsRouter)
-app.use('/books', booksRouter)
-
 
 //Database
 const mongoose = require('mongoose')
@@ -37,5 +33,10 @@ mongoose.connect(uri, {
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
+
+//Routes
+app.use('/', indexRouter)
+app.use('/authors', authorsRouter)
+app.use('/books', booksRouter)
 
 app.listen(process.env.PORT || 3000)

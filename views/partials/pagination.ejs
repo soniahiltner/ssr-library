@@ -8,7 +8,9 @@
     <span>&lt;</span>
   </a>
   <% } %>
+  <% if (currentPage > 0) { %>
   <span class="page-number">Page <%= currentPage %> of <%= totalPages %></span>
+  <% } %>
   <% if (currentPage < totalPages) { %>
   <a
     href="<%= url %>/?page=<%= currentPage + 1 %>"

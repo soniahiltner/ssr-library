@@ -4,6 +4,16 @@
 @import 'shared/authors.css';
 @import 'shared/books.css';
 
+:root {
+  --first-font: 'Rubik Dirt', cursive;
+  --second-font: 'Acme', sans-serif;
+  --third-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  --text-color: wheat;
+  --background: linear-gradient(to right, #195905, #437331);
+  --background-with-image: url(/images/children.png),
+    linear-gradient(to right, #195905, #437331);
+}
+
 *,
 *::after,
 *::before {
@@ -13,11 +23,11 @@
 }
 
 body {
-  background-image: linear-gradient(to right, #195905, #437331);
+  background-image: var(--background);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  color: wheat;
+  color: var(--text-color);
   min-height: 100vh;
 }
 
@@ -31,12 +41,11 @@ body {
 .head {
   position: sticky;
   top: 0;
-  background-image: url(/images/children.png),
-    linear-gradient(to right, #195905, #437331);
+  background-image: var(--background-with-image);
   background-size: 110px, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: top 3rem right 0.2rem, top;
-  color: wheat;
+  color: var(--text-color);
 }
 
 .body-container {
@@ -45,7 +54,7 @@ body {
 
 .page-header {
   font-size: 2rem;
-  font-family: 'Acme', sans-serif;
+  font-family: var(--second-font);
 }
 
 .quote-container {
@@ -55,7 +64,8 @@ body {
   align-items: center;
   max-width: 30rem;
   margin: 0 auto;
-  font-family: 'Acme', sans-serif;
+  padding-bottom: 1rem;
+  font-family: var(--second-font);
 }
 .quote::before,
 .quote::after {
@@ -63,25 +73,24 @@ body {
 }
 .quote {
   padding: 1rem 1rem 0.5rem;
+  font-size: 1.1rem;
 }
 .author-quote {
   align-self: flex-end;
   padding-right: 2rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 935px) {
   body {
-    background-image: url(/images/children.png),
-      linear-gradient(to right, #195905, #437331);
+    background-image: var(--background-with-image);
     background-repeat: no-repeat, no-repeat;
     background-position: top 6.5rem right 4rem, top;
     background-size: 125px, cover;
   }
   .head {
-    background-image: linear-gradient(to right, #195905, #437331);
+    background-image: var(--background);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
   }
 }
-

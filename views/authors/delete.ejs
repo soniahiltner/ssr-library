@@ -1,0 +1,10 @@
+<div class="delete-form-container">
+  <form class="delete-form" action="/authors/<%= author.id %>?_method=DELETE" method="POST">
+    <span class="confirm">Are you sure you want to delete <strong><%= author.name %></strong>  and all his books from the library?</span>
+    <div class="delete-form-btns">
+      <button class="btn btn-cancel" type="submit" >Delete</button>
+      <a class="btn btn-submit" href="/authors">Cancel</a>
+    </div>
+    
+</form>
+</div>

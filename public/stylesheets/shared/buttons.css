@@ -7,7 +7,6 @@
   justify-content: flex-end;
   column-gap: 0.4rem;
   margin-top: 1rem;
-  
 }
 
 .btn {
@@ -16,16 +15,18 @@
   text-decoration: none;
   padding: 0.3rem 0.4rem;
   border-radius: 0.2rem;
-  color: rgba(245, 222, 179, 0.788);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgba(245, 222, 179, 0.714);
+  font-family: var(--third-font);
   font-size: 1rem;
   border: none;
   box-shadow: 1px 1px 1px rgb(27, 23, 23), 1px 1px 5px rgba(27, 23, 23, 0.807);
   cursor: pointer;
+  user-select: none;
 }
 
 .btn-cancel {
-  background-color: rgba(252, 109, 8, 0.907);
+  background-color: #ff770083;
+  color: rgba(0, 0, 0, 0.74);
 }
 
 .btn-submit {
@@ -37,19 +38,26 @@
 }
 
 .btn-submit:hover {
-  background-color: rgba(13, 77, 18);
+  background-color: rgba(13, 77, 18, 0.555);
+  color: whitesmoke;
 }
 
 .btn-cancel:hover {
-  background-color: rgba(252, 109, 8);
+  background-color: #ff7700db;
+  color: rgb(1, 54, 1);
 }
 
-@media screen and (min-width:425px) {
+@media screen and (min-width: 425px) {
   .btn-container {
     column-gap: 1rem;
   }
   .btn {
     font-size: 1.1rem;
   }
-  
+}
+
+/* Delete-form-buttons */
+.delete-form-btns {
+  display: flex;
+  justify-content: space-around;
 }
